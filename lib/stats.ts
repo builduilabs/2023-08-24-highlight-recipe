@@ -24,7 +24,6 @@ export async function refreshVisitors() {
   stats.visitors = stats.visitors + getRandomInt(10, 100);
 
   cookies().set("stats", JSON.stringify(stats));
-  // revalidatePath("/");
 }
 
 export async function refreshCustomers() {
@@ -32,8 +31,6 @@ export async function refreshCustomers() {
   stats.customers = stats.customers + getRandomInt(10, 100);
 
   cookies().set("stats", JSON.stringify(stats));
-
-  revalidatePath("/");
 }
 
 export async function refreshOrders() {
@@ -41,8 +38,6 @@ export async function refreshOrders() {
   stats.orders = stats.orders + getRandomInt(10, 100);
 
   cookies().set("stats", JSON.stringify(stats));
-
-  revalidatePath("/");
 }
 
 function getRandomInt(min: number, max: number) {
