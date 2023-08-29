@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 
 let stats = {
   visitors: 10320,
@@ -9,23 +10,37 @@ let stats = {
 };
 
 export async function getStats() {
-  return stats;
+  let statsCookie = cookies().get("stats");
+
+  if (!statsCookie) {
+    return stats;
+  }
+
+  return JSON.parse(statsCookie.value);
 }
 
 export async function refreshVisitors() {
+  let stats = await getStats();
   stats.visitors = stats.visitors + getRandomInt(10, 100);
 
+  cookies().set("stats", JSON.stringify(stats));
   revalidatePath("/");
 }
 
 export async function refreshCustomers() {
-  stats.customers = stats.customers + getRandomInt(1, 100);
+  let stats = await getStats();
+  stats.customers = stats.customers + getRandomInt(10, 100);
+
+  cookies().set("stats", JSON.stringify(stats));
 
   revalidatePath("/");
 }
 
 export async function refreshOrders() {
-  stats.orders = stats.orders + getRandomInt(1, 100);
+  let stats = await getStats();
+  stats.orders = stats.orders + getRandomInt(10, 100);
+
+  cookies().set("stats", JSON.stringify(stats));
 
   revalidatePath("/");
 }
