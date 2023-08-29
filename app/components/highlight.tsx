@@ -27,7 +27,7 @@ export default function Highlight({
   }, [duration, trigger]);
 
   return (
-    <div data-state={isHighlighted ? "on" : "off"} className={className}>
+    <div data-highlight={isHighlighted || null} className={className}>
       {children}
     </div>
   );
