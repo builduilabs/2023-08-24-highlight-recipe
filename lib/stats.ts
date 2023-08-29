@@ -24,7 +24,7 @@ export async function refreshVisitors() {
   stats.visitors = stats.visitors + getRandomInt(10, 100);
 
   cookies().set("stats", JSON.stringify(stats));
-  revalidatePath("/");
+  // revalidatePath("/");
 }
 
 export async function refreshCustomers() {
