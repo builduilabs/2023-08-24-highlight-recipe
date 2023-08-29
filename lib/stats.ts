@@ -12,16 +12,20 @@ export async function getStats() {
   return stats;
 }
 
-export async function refreshStats() {
+export async function refreshVisitors() {
   stats.visitors = stats.visitors + getRandomInt(10, 100);
-  // stats.customers = stats.customers + getRandomInt(1, 100);
 
   revalidatePath("/");
 }
 
 export async function refreshCustomers() {
-  // stats.visitors = stats.visitors + getRandomInt(10, 100);
   stats.customers = stats.customers + getRandomInt(1, 100);
+
+  revalidatePath("/");
+}
+
+export async function refreshOrders() {
+  stats.orders = stats.orders + getRandomInt(1, 100);
 
   revalidatePath("/");
 }

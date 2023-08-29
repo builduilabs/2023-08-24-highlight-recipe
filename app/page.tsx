@@ -1,4 +1,9 @@
-import { getStats, refreshCustomers, refreshStats } from "@/lib/stats";
+import {
+  getStats,
+  refreshCustomers,
+  refreshOrders,
+  refreshVisitors,
+} from "@/lib/stats";
 import Counter from "./components/counter";
 import Highlight from "./components/highlight";
 
@@ -6,47 +11,64 @@ export default async function Home() {
   let { visitors, customers, orders } = await getStats();
 
   return (
-    <div className="mb-20 p-20">
-      <div className="flex gap-2">
-        <form action={refreshStats}>
-          <button className="rounded bg-white/10 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-white/20">
-            Refresh stats
-          </button>
-        </form>
-
-        <form action={refreshCustomers}>
-          <button className="rounded bg-white/10 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-white/20">
-            Refresh customers
-          </button>
-        </form>
-      </div>
-
-      <div className="mt-20 grid grid-cols-3 gap-12">
-        <Highlight trigger={visitors} duration={450} className="group">
-          <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-sky-500 shadow transition duration-1000 group-data-[state=on]:bg-sky-500 group-data-[state=on]:text-white group-data-[state=on]:duration-[100ms] md:px-4 md:py-5">
-            <dt className="truncate text-sm font-medium text-white/50">
-              Visitors
-            </dt>
-            <dd className="relative origin-center truncate text-lg font-semibold tabular-nums md:mt-2 md:text-xl md:tracking-tight">
-              <Counter value={visitors} />
-            </dd>
-          </div>
-        </Highlight>
-
-        <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-sky-500 shadow transition duration-1000 group-data-[state=on]:bg-sky-500 group-data-[state=on]:text-white group-data-[state=on]:duration-75 md:px-4 md:py-5">
-          <dt className="truncate text-sm font-medium text-white/50">
-            Customers
-          </dt>
-          <dd className="relative origin-center truncate text-lg font-semibold tabular-nums md:mt-2 md:text-xl md:tracking-tight">
-            {customers.toLocaleString()}
-          </dd>
+    <div className="mx-auto w-full max-w-4xl gap-2 space-y-6 p-10">
+      <div className="grid grid-cols-3 gap-12">
+        <div className="space-y-8">
+          <form action={refreshVisitors}>
+            <button className="rounded bg-white/10 px-4 py-1 text-sm font-semibold text-white shadow-sm transition hover:bg-white/20 active:bg-white/25">
+              Refresh
+            </button>
+          </form>
+          <Highlight trigger={visitors} duration={450} className="group">
+            <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-sky-500 shadow transition duration-1000 group-data-[state=on]:bg-sky-500 group-data-[state=on]:text-white group-data-[state=on]:duration-[125ms] md:px-4 md:py-5">
+              <dt className="truncate text-sm font-medium text-white/50">
+                Visitors
+              </dt>
+              <dd className="relative origin-center truncate text-lg font-semibold tabular-nums md:mt-2 md:text-xl md:tracking-tight">
+                <Counter value={visitors} />
+              </dd>
+            </div>
+          </Highlight>
         </div>
 
-        <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-sky-500 shadow transition duration-1000 group-data-[state=on]:bg-sky-500 group-data-[state=on]:text-white group-data-[state=on]:duration-75 md:px-4 md:py-5">
-          <dt className="truncate text-sm font-medium text-white/50">Orders</dt>
-          <dd className="relative origin-center truncate text-lg font-semibold tabular-nums md:mt-2 md:text-xl md:tracking-tight">
-            {orders.toLocaleString()}
-          </dd>
+        <div className="space-y-8">
+          <form action={refreshCustomers}>
+            <button className="rounded bg-white/10 px-4 py-1 text-sm font-semibold text-white shadow-sm transition hover:bg-white/20 active:bg-white/25">
+              Refresh
+            </button>
+          </form>
+          <Highlight trigger={customers} duration={500} className="group">
+            <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-rose-500 shadow transition duration-1000 group-data-[state=on]:border-rose-500 group-data-[state=on]:duration-0 md:px-4 md:py-5">
+              <dt className="truncate text-sm font-medium text-white/50">
+                Customers
+              </dt>
+              <dd className="relative origin-center truncate text-lg font-semibold tabular-nums md:mt-2 md:text-xl md:tracking-tight">
+                <Counter value={customers} />
+              </dd>
+            </div>
+          </Highlight>
+        </div>
+
+        <div className="space-y-8">
+          <form action={refreshOrders}>
+            <button className="rounded bg-white/10 px-4 py-1 text-sm font-semibold text-white shadow-sm transition hover:bg-white/20 active:bg-white/25">
+              Refresh
+            </button>
+          </form>
+          <Highlight trigger={orders} duration={1000} className="group">
+            <div className="relative overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-green-500 shadow md:px-4 md:py-5">
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="aspect-square h-full animate-[fadeOut_1000ms_cubic-bezier(0.09,.6,.36,1)_forwards] rounded-full bg-green-500/50 group-data-[state=on]:animate-[ripple_250ms_cubic-bezier(0.09,.6,.36,1)_forwards]" />
+              </div>
+
+              <dt className="truncate text-sm font-medium text-white/50">
+                Orders
+              </dt>
+              <dd className="group-data[state=on]:duration-[1000ms] relative origin-center truncate text-lg font-semibold tabular-nums transition duration-[250ms] ease-[cubic-bezier(0.09,.6,.36,1)] group-data-[state=on]:text-white md:mt-2 md:text-xl md:tracking-tight">
+                {orders.toLocaleString()}
+              </dd>
+            </div>
+          </Highlight>
         </div>
       </div>
     </div>
