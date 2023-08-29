@@ -20,7 +20,7 @@ export default async function Home() {
             </button>
           </form>
           <Highlight trigger={visitors} duration={450} className="group">
-            <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-sky-500 shadow transition duration-1000 group-data-[highlight]:bg-sky-500 group-data-[highlight]:text-white group-data-[highlight]:duration-[125ms] md:px-4 md:py-5">
+            <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-sky-500 shadow transition duration-1000 group-data-[highlight=on]:bg-sky-500 group-data-[highlight=on]:text-white group-data-[highlight=on]:duration-[200ms] md:px-4 md:py-5">
               <dt className="truncate text-sm font-medium text-white/50">
                 Visitors
               </dt>
@@ -38,7 +38,7 @@ export default async function Home() {
             </button>
           </form>
           <Highlight trigger={customers} duration={500} className="group">
-            <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-rose-500 shadow transition duration-1000 group-data-[highlight]:border-rose-500 group-data-[highlight]:duration-0 md:px-4 md:py-5">
+            <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-rose-500 shadow transition duration-1000 group-data-[highlight=on]:border-rose-500 group-data-[highlight=on]:duration-[150ms] md:px-4 md:py-5">
               <dt className="truncate text-sm font-medium text-white/50">
                 Customers
               </dt>
@@ -56,15 +56,15 @@ export default async function Home() {
             </button>
           </form>
           <Highlight trigger={orders} duration={350} className="group">
-            <div className="relative overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 p-3 text-green-500 shadow md:px-4 md:py-5">
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="aspect-square h-full animate-[fadeOut_750ms_forwards] rounded-full bg-green-500/50 group-data-[highlight]:animate-[ripple_250ms_cubic-bezier(0.09,.6,.36,1)_forwards]" />
+            <div className="relative overflow-hidden rounded-lg  bg-gray-900 p-3 text-green-500 shadow md:px-4 md:py-5">
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg border border-white/[0.15]">
+                <div className="aspect-square h-full rounded-full border border-white/[0.15] bg-green-500/50 opacity-0 group-data-[highlight=off]:animate-[fadeOut_750ms_forwards] group-data-[highlight=on]:animate-[ripple_250ms_cubic-bezier(0.09,.6,.36,1)_forwards]" />
               </div>
 
               <dt className="truncate text-sm font-medium text-white/50">
                 Orders
               </dt>
-              <dd className="relative origin-center truncate text-lg font-semibold tabular-nums transition duration-[750ms] group-data-[highlight]:text-white group-data-[highlight]:duration-[250ms] md:mt-2 md:text-xl md:tracking-tight">
+              <dd className="relative origin-center truncate text-lg font-semibold tabular-nums transition duration-[750ms] group-data-[highlight=on]:text-white group-data-[highlight=on]:duration-[250ms] md:mt-2 md:text-xl md:tracking-tight">
                 <Counter value={orders} />
               </dd>
             </div>

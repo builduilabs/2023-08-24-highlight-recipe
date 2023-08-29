@@ -14,20 +14,26 @@ export default function Highlight({
   className: string;
 }) {
   let [previous, setPrevious] = useState(trigger);
-  let isHighlighted = previous !== trigger;
+  let [didHighlight, setDidHighlight] = useState(false);
 
   useEffect(() => {
     const handler = setTimeout(() => {
+      if (previous !== trigger) {
+        setDidHighlight(true);
+      }
       setPrevious(trigger);
     }, duration);
 
     return () => {
       clearTimeout(handler);
     };
-  }, [duration, trigger]);
+  }, [duration, previous, trigger]);
 
   return (
-    <div data-highlight={isHighlighted || null} className={className}>
+    <div
+      data-highlight={previous !== trigger ? "on" : didHighlight ? "off" : null}
+      className={className}
+    >
       {children}
     </div>
   );
