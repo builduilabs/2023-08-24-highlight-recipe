@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 let stats = {
@@ -19,25 +18,33 @@ export async function getStats() {
   return JSON.parse(statsCookie.value);
 }
 
+let options = {
+  sameSite: "lax",
+  path: "/",
+  maxAge: 60 * 60 * 24 * 30,
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+} as const;
+
 export async function refreshVisitors() {
   let stats = await getStats();
   stats.visitors = stats.visitors + getRandomInt(10, 100);
 
-  cookies().set("stats", JSON.stringify(stats));
+  cookies().set("stats", JSON.stringify(stats), options);
 }
 
 export async function refreshCustomers() {
   let stats = await getStats();
   stats.customers = stats.customers + getRandomInt(10, 100);
 
-  cookies().set("stats", JSON.stringify(stats));
+  cookies().set("stats", JSON.stringify(stats), options);
 }
 
 export async function refreshOrders() {
   let stats = await getStats();
   stats.orders = stats.orders + getRandomInt(10, 100);
 
-  cookies().set("stats", JSON.stringify(stats));
+  cookies().set("stats", JSON.stringify(stats), options);
 }
 
 function getRandomInt(min: number, max: number) {
