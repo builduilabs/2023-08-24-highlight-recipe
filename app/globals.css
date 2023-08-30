@@ -4,7 +4,7 @@
 
 @keyframes ripple {
   0% {
-    scale: 0;
+    scale: 0.1;
     opacity: 0;
   }
   100% {
