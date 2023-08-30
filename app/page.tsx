@@ -20,7 +20,7 @@ export default async function Home() {
               <dt className="truncate text-sm font-medium text-white/50">
                 Visitors
               </dt>
-              <dd className="relative mt-1 origin-center truncate text-lg font-semibold tabular-nums md:mt-2 md:text-xl md:tracking-tight">
+              <dd className="relative mt-1 origin-center truncate text-lg font-semibold tabular-nums md:tracking-tight">
                 <Counter value={visitors} />
               </dd>
             </div>
@@ -37,7 +37,7 @@ export default async function Home() {
               <dt className="truncate text-sm font-medium text-white/50">
                 Customers
               </dt>
-              <dd className="relative mt-1 origin-center truncate text-lg font-semibold tabular-nums md:mt-2 md:text-xl md:tracking-tight">
+              <dd className="relative mt-1 origin-center truncate text-lg font-semibold tabular-nums md:tracking-tight">
                 <Counter value={customers} />
               </dd>
             </div>
@@ -58,7 +58,7 @@ export default async function Home() {
               <dt className="truncate text-sm font-medium text-white/50">
                 Orders
               </dt>
-              <dd className="relative mt-1 origin-center truncate text-lg font-semibold tabular-nums transition duration-[750ms] group-data-[highlight=on]:text-white group-data-[highlight=on]:duration-[250ms] md:mt-2 md:text-xl md:tracking-tight">
+              <dd className="relative mt-1 origin-center truncate text-lg font-semibold tabular-nums transition duration-[750ms] group-data-[highlight=on]:text-white group-data-[highlight=on]:duration-[250ms] md:tracking-tight">
                 <Counter value={orders} />
               </dd>
             </div>
