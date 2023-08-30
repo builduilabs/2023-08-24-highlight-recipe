@@ -1,18 +1,22 @@
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ReactNode,
+  useEffect,
+  useState,
+} from "react";
 
 export default function Highlight({
   children,
   trigger,
   duration,
-  className,
+  ...props
 }: {
   children: ReactNode;
   trigger: unknown;
   duration: number;
-  className: string;
-}) {
+} & ComponentPropsWithoutRef<"div">) {
   let [previous, setPrevious] = useState(trigger);
   let [didHighlight, setDidHighlight] = useState(false);
 
@@ -32,7 +36,7 @@ export default function Highlight({
   return (
     <div
       data-highlight={previous !== trigger ? "on" : didHighlight ? "off" : null}
-      className={className}
+      {...props}
     >
       {children}
     </div>
