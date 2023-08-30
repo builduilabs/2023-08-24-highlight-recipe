@@ -1,22 +1,18 @@
 "use client";
 
-import {
-  ComponentPropsWithoutRef,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
+import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 
-export default function Highlight({
-  children,
-  trigger,
-  duration,
-  ...props
-}: {
-  children: ReactNode;
+type HighlightProps = ComponentPropsWithoutRef<"div"> & {
   trigger: unknown;
   duration: number;
-} & ComponentPropsWithoutRef<"div">) {
+};
+
+export default function Highlight({
+  trigger,
+  duration,
+  children,
+  ...props
+}: HighlightProps) {
   let [previous, setPrevious] = useState(trigger);
   let [didHighlight, setDidHighlight] = useState(false);
 
