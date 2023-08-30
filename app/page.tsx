@@ -52,7 +52,7 @@ export default async function Home() {
           <Highlight trigger={orders} duration={350} className="group">
             <div className="relative overflow-hidden rounded-lg bg-gray-900 px-3 py-5 text-green-500 shadow md:px-4">
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-lg border border-white/[0.15]">
-                <div className="aspect-square h-full rounded-full bg-green-500/50 opacity-0 group-data-[highlight=off]:animate-[fadeOut_750ms_forwards] group-data-[highlight=on]:animate-[ripple_250ms_cubic-bezier(0.09,.6,.36,1)_forwards]" />
+                <div className="aspect-square w-full rounded-full bg-green-500/50 opacity-0 group-data-[highlight=off]:animate-[fadeOut_750ms_forwards] group-data-[highlight=on]:animate-[ripple_250ms_cubic-bezier(0.09,.6,.36,1)_forwards]" />
               </div>
 
               <dt className="truncate text-sm font-medium text-white/50">
