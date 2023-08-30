@@ -19,11 +19,11 @@ export async function getStats() {
 }
 
 let options = {
-  sameSite: "lax",
+  sameSite: "none",
   path: "/",
   maxAge: 60 * 60 * 24 * 30,
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
+  secure: true,
 } as const;
 
 export async function refreshVisitors() {
