@@ -18,5 +18,3 @@ export default function Home() {
     </div>
   );
 }
-
-export const runtime = "edge";
