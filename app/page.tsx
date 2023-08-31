@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div className="bg-gray-900 p-8 transition duration-1000" />;
+  return <div className="bg-gray-900 p-8 transition" />;
 }
