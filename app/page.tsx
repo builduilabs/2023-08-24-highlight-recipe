@@ -1,9 +1,3 @@
-import {
-  getStats,
-  refreshCustomers,
-  refreshOrders,
-  refreshVisitors,
-} from "@/lib/stats";
 import Counter from "./components/counter";
 import Highlight from "./components/highlight";
 import { ReactNode } from "react";
