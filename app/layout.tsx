@@ -13,11 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full bg-gray-800 text-white antialiased">
-      {/* <head>
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-      </head> */}
       <head>
-        <meta name="color-scheme" content="dark" />
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>
       <body className={`flex h-full items-center justify-center`}>
         {children}

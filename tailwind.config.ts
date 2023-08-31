@@ -10,9 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // fontFamily: {
-      //   sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-      // },
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         gray: { ...colors.slate, 950: "#020617" },
       },
