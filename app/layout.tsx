@@ -16,6 +16,9 @@ export default function RootLayout({
       {/* <head>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head> */}
+      <head>
+        <meta name="color-scheme" content="dark" />
+      </head>
       <body className={`flex h-full items-center justify-center`}>
         {children}
       </body>
