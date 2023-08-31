@@ -9,7 +9,11 @@ import Highlight from "./components/highlight";
 import { ReactNode } from "react";
 
 export default async function Home() {
-  let { visitors, customers, orders } = await getStats();
+  let { visitors, customers, orders } = {
+    visitors: 10320,
+    customers: 4628,
+    orders: 2980,
+  };
 
   return (
     <div className="mx-auto w-full max-w-xs gap-2 space-y-6 sm:max-w-4xl">
