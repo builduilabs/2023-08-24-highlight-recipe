@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 import type { Config } from "tailwindcss";
 const colors = require("tailwindcss/colors");
 
@@ -9,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         gray: { ...colors.slate, 950: "#020617" },
       },
