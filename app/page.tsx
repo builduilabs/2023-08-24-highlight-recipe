@@ -8,7 +8,7 @@ import Counter from "./components/counter";
 import Highlight from "./components/highlight";
 import { ReactNode } from "react";
 
-export default async function Home() {
+export default function Home() {
   let { visitors, customers, orders } = {
     visitors: 10320,
     customers: 4628,
@@ -30,9 +30,9 @@ export default async function Home() {
             </div>
           </Highlight>
 
-          <form action={refreshVisitors}>
+          {/* <form action={refreshVisitors}>
             <Button>Refresh</Button>
-          </form>
+          </form> */}
         </div>
 
         <div className="space-y-4">
@@ -47,9 +47,9 @@ export default async function Home() {
             </div>
           </Highlight>
 
-          <form action={refreshCustomers}>
+          {/* <form action={refreshCustomers}>
             <Button>Refresh</Button>
-          </form>
+          </form> */}
         </div>
 
         <div className="space-y-4">
@@ -68,9 +68,9 @@ export default async function Home() {
             </div>
           </Highlight>
 
-          <form action={refreshOrders}>
+          {/* <form action={refreshOrders}>
             <Button>Refresh</Button>
-          </form>
+          </form> */}
         </div>
       </div>
     </div>
