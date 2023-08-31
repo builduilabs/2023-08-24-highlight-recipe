@@ -14,7 +14,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full bg-gray-800 text-white antialiased">
       <body className={`flex h-full items-center justify-center`}>
-        <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 px-3 py-5 text-sky-500 shadow transition duration-1000 group-data-[highlight=on]:bg-sky-500 group-data-[highlight=on]:text-white group-data-[highlight=on]:duration-[200ms] md:px-4" />
         {children}
       </body>
     </html>
