@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.no-transition * {
+  @apply !transition-none;
+}
+
 @keyframes ripple {
   0% {
     scale: 0.1;

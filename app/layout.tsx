@@ -1,3 +1,4 @@
+import BodyWithoutInitialTransition from "./components/body-without-initial-transition";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -16,9 +17,9 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>
-      <body className={`flex h-full items-center justify-center`}>
+      <BodyWithoutInitialTransition className="flex h-full items-center justify-center">
         {children}
-      </body>
+      </BodyWithoutInitialTransition>
     </html>
   );
 }
