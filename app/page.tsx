@@ -12,8 +12,8 @@ export default async function Home() {
   let { visitors, customers, orders } = await getStats();
 
   return (
-    <div className="mx-auto w-full max-w-xs gap-2 space-y-6 sm:max-w-4xl">
-      <div className="grid gap-10 sm:grid-cols-3 sm:gap-4">
+    <div className="mx-auto w-full max-w-xs gap-2 space-y-6 px-4 md:max-w-4xl md:px-8">
+      <div className="grid gap-10 md:grid-cols-3 md:gap-4">
         <div className="space-y-4">
           <Highlight trigger={visitors} duration={450} className="group">
             <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 px-3 py-5 text-sky-500 shadow transition duration-1000 group-data-[highlight=on]:bg-sky-500 group-data-[highlight=on]:text-white group-data-[highlight=on]:duration-[200ms] md:px-4">
@@ -31,7 +31,7 @@ export default async function Home() {
           </form>
         </div>
 
-        <div className="space-y-4">
+        <div className="hidden space-y-4 md:block">
           <Highlight trigger={customers} duration={500} className="group">
             <div className="overflow-hidden rounded-lg border border-white/[0.15] bg-gray-900 px-3 py-5 text-rose-500 shadow transition duration-1000 group-data-[highlight=on]:border-rose-500 group-data-[highlight=on]:duration-[150ms] md:px-4">
               <dt className="truncate text-sm font-medium text-white/50">
